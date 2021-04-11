@@ -19,9 +19,9 @@ public class Aliment {
     @ManyToOne
     private Barbecue barbecue;
 
-    private Aliment(){}
+    public Aliment(){}
 
-    private Aliment(int id, String name){
+    public Aliment(int id, String name){
         this.id = id;
         this.name = name;
     }
@@ -50,3 +50,4 @@ public class Aliment {
 
     public void setPerson(){this.persons=persons;}
 }
+

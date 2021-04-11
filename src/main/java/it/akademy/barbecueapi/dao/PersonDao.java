@@ -1,4 +1,19 @@
 package it.akademy.barbecueapi.dao;
 
-public interface PersonDao {
+import it.akademy.barbecueapi.models.Person;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.*;
+
+import java.util.List;
+
+@Repository
+public interface PersonDao  extends JpaRepository<Person, Integer> {
+    @Override
+    List<Person> findAll();
+
+    Person findById(int id);
+
+    Person save(Person person);
+
+    void deleteById(int id);
 }

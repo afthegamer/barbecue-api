@@ -15,7 +15,7 @@ public class Person {
     private String firstName;
 
     @JsonManagedReference(value = "aliment-barbecue")
-    @ManyToOne
+    @OneToMany
     private List<Aliment> aliments;
 
     @JsonManagedReference(value = "barbecue-person")
