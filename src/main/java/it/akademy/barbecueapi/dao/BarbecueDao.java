@@ -12,7 +12,11 @@ public interface BarbecueDao extends JpaRepository<Barbecue, Integer> {
     @Override
     List<Barbecue> findAll();
 
-    List<Barbecue> findAllByName(String date,String address, String city, String country);
+    List<Barbecue> findAllByDate(String date);
+    List<Barbecue> findAllByAddress(String address);
+    List<Barbecue> findAllByCity(String city);
+    List<Barbecue> findAllByCountry(String country);
+
 
     Barbecue findById(int id);
 
