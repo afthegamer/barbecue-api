@@ -26,27 +26,37 @@ public class BarbecueController {
 
     @GetMapping
     public ResponseEntity<List<Barbecue>> getAllBarbecue(){
-        List<Barbecue> gardens = barbecueDao.findAll();
-        return new ResponseEntity<>(gardens, HttpStatus.OK);
+        List<Barbecue> barbecue = barbecueDao.findAll();
+        return new ResponseEntity<>(barbecue, HttpStatus.OK);
     }
     @GetMapping("/?address={address}")
     public ResponseEntity<List<Barbecue>> getAllBarbecueByAddress(@PathVariable String address){
-        List<Barbecue> gardens = barbecueDao.findAllByAddress(address);
-        return new ResponseEntity<>(gardens, HttpStatus.OK);
+        List<Barbecue> barbecue = barbecueDao.findAllByAddress(address);
+        return new ResponseEntity<>(barbecue, HttpStatus.OK);
     }
-    @GetMapping("/?city={citys}")
+    @GetMapping("/?city={city}")
     public ResponseEntity<List<Barbecue>> getAllBarbecueByCity(@PathVariable String city){
-        List<Barbecue> gardens = barbecueDao.findAllByCity(city);
-        return new ResponseEntity<>(gardens, HttpStatus.OK);
+        List<Barbecue> barbecue = barbecueDao.findAllByCity(city);
+        return new ResponseEntity<>(barbecue, HttpStatus.OK);
     }
     @GetMapping("/?country={country}")
     public ResponseEntity<List<Barbecue>> getAllBarbecueByCountry(@PathVariable String country){
-        List<Barbecue> gardens = barbecueDao.findAllByCountry(country);
-        return new ResponseEntity<>(gardens, HttpStatus.OK);
+        List<Barbecue> barbecue = barbecueDao.findAllByCountry(country);
+        return new ResponseEntity<>(barbecue, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/?id={id}")
+    public ResponseEntity<Barbecue> getBarbecueById(@PathVariable int id){
+        Barbecue barbecue = barbecueDao.findById(id);
+        if(barbecue == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(barbecue, HttpStatus.OK);
     }
     @PostMapping
-    public ResponseEntity<Barbecue> addGarden(@RequestBody Barbecue barbecue){
-        Barbecue addedGarden = barbecueDao.save(barbecue);
-        return new ResponseEntity<>(addedGarden, HttpStatus.CREATED);
+    public ResponseEntity<Barbecue> addPerson(@RequestBody Barbecue barbecue){
+        Barbecue addedBarbecue = barbecueDao.save(barbecue);
+        return new ResponseEntity<>(addedBarbecue, HttpStatus.CREATED);
     }
 }

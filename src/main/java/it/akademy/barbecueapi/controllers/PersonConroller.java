@@ -27,4 +27,14 @@ public class PersonConroller {
         List<Person> persons = personDao.findAll();
         return new ResponseEntity<>(persons, HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Person> getPersonById(@PathVariable int id){
+        Person person = personDao.findById(id);
+
+        if(person == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(person, HttpStatus.OK);
+    }
 }
