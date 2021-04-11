@@ -23,7 +23,7 @@ public class PersonConroller {
     }
 
     @GetMapping
-    public ResponseEntity<List<Person>> getAllGardeners(){
+    public ResponseEntity<List<Person>> getAllPerson(){
         List<Person> persons = personDao.findAll();
         return new ResponseEntity<>(persons, HttpStatus.OK);
     }
