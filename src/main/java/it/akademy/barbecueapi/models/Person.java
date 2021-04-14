@@ -8,14 +8,17 @@ import java.util.List;
 
 @Entity
 public class Person {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String lastName;
+
     private String firstName;
 
     @JsonManagedReference(value = "aliment-barbecue")
-    @OneToMany
+    @ManyToMany
     private List<Aliment> aliments;
 
     @JsonManagedReference(value = "barbecue-person")

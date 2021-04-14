@@ -1,9 +1,13 @@
 package it.akademy.barbecueapi.controllers;
 
-import it.akademy.barbecueapi.dao.*;
+import it.akademy.barbecueapi.dao.AlimentDao;
+import it.akademy.barbecueapi.dao.BarbecueDao;
+import it.akademy.barbecueapi.dao.PersonDao;
+
 import it.akademy.barbecueapi.models.Barbecue;
 
-import org.springframework.beans.factory.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -55,7 +59,7 @@ public class BarbecueController {
         return new ResponseEntity<>(barbecue, HttpStatus.OK);
     }
     @PostMapping
-    public ResponseEntity<Barbecue> addPerson(@RequestBody Barbecue barbecue){
+    public ResponseEntity<Barbecue> addBarbecue(@RequestBody Barbecue barbecue){
         Barbecue addedBarbecue = barbecueDao.save(barbecue);
         return new ResponseEntity<>(addedBarbecue, HttpStatus.CREATED);
     }

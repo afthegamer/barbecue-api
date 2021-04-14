@@ -8,7 +8,6 @@ import java.util.List;
 
 @Repository
 public interface PersonDao  extends JpaRepository<Person, Integer> {
-    @Override
     List<Person> findAll();
 
     Person findById(int id);

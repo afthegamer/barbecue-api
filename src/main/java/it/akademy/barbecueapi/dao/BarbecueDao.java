@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface BarbecueDao extends JpaRepository<Barbecue, Integer> {
-    @Override
+
     List<Barbecue> findAll();
 
     List<Barbecue> findAllByDate(String date);

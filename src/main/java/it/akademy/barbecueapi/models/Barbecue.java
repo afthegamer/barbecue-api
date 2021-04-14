@@ -20,7 +20,7 @@ public class Barbecue {
     @JsonManagedReference(value = "barbecue-person")
     @OneToMany
     private List<Person> persons;
-    
+
     @JsonManagedReference(value= "aliment-barbecue")
     @OneToMany
     private List<Aliment> aliments;
